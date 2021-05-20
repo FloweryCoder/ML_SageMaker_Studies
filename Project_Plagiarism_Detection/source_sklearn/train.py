@@ -10,7 +10,9 @@ import pandas as pd
 import joblib
 
 ## TODO: Import any additional libraries you need to define a model
-
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 
 # Provided model load function
 def model_fn(model_dir):
@@ -58,12 +60,14 @@ if __name__ == '__main__':
     ## --- Your code here --- ##
     
 
-    ## TODO: Define a model 
-    model = None
+    ## TODO: Define a model
+    #model = GaussianNB()
+    #model = SVC(kernel="linear")
+    model = RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1)
     
     
     ## TODO: Train the model
-    
+    model.fit(train_x, train_y)
     
     
     ## --- End of your code  --- ##
